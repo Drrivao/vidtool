@@ -1006,9 +1006,11 @@ def get_folder_path(folder_path):
             if not Path(folder_path).exists():
                 print("The folder does not exist. Try again.")
             else:
-                return Path(folder_path)
+                os.system(f'sudo mv "{folder_path}" /')
+                return Path("/"+Path(folder_path).parts[-1])
     else:
-        return Path(folder_path)
+        os.system(f'sudo mv "{folder_path}" /')
+        return Path("/"+Path(folder_path).parts[-1])
 
 
 def get_path_file_report(path_file_report, path_dir):
