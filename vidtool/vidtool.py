@@ -998,20 +998,13 @@ def get_config_data(path_file_config):
 
 def get_folder_path(folder_path):
 
-    if folder_path is None or Path(folder_path).exists() is False:
-        while True:
-            folder_path = input(
-                "\nPaste the folder link where are the video files: "
-            )
-            if not Path(folder_path).exists():
-                print("The folder does not exist. Try again.")
-            else:
-                os.system(f'sudo mv "{folder_path}" /')
-                return Path("/"+Path(folder_path).parts[-1])
-    else:
-        os.system(f'sudo mv "{folder_path}" /')
-        return Path("/"+Path(folder_path).parts[-1])
-
+    while True:
+        folder_path = input("\nAbsolute path to folder: ")
+        if not Path(folder_path).exists():
+            print("The folder does not exist. Try again.")
+        else:
+            os.system(f'mv "{folder_path}" "{os.getcwd()}"')
+            return Path(os.path.basename(folder_path)).resolve()
 
 def get_path_file_report(path_file_report, path_dir):
 
