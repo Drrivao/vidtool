@@ -48,12 +48,6 @@ def logging_config():
     # add the handler to the root logger
     logging.getLogger("").addHandler(console)
 
-
-def clean_cmd():
-
-    return os.system("cls")
-
-
 def df_sort_human(df, key_column_name):
     """
     Sort files and folders in human way.
@@ -1068,7 +1062,7 @@ def main():
 
             # break_point
             input("Type Enter to continue")
-            clean_cmd()
+            os.system("clear || cls")
             continue
         elif menu_answer == 2:
             # make reencode
@@ -1099,7 +1093,7 @@ def main():
                 + 'and proceed to the "Group videos" process.'
             )
 
-            clean_cmd()
+            os.system("clear || cls")
             continue
 
         elif menu_answer == 3:
