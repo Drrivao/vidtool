@@ -21,6 +21,10 @@ from .process import reencode, split
 from .reencode_plan import prefill
 
 
+def clean_cmd():
+
+    return os.system("clear || cls")
+
 def ensure_folder_existence(folders_path: list[str]):
     """
     :input: folders_path: List
@@ -1062,7 +1066,7 @@ def main():
 
             # break_point
             input("Type Enter to continue")
-            os.system("clear || cls")
+            clean_cmd()
             continue
         elif menu_answer == 2:
             # make reencode
@@ -1093,7 +1097,7 @@ def main():
                 + 'and proceed to the "Group videos" process.'
             )
 
-            os.system("clear || cls")
+            clean_cmd()
             continue
 
         elif menu_answer == 3:
